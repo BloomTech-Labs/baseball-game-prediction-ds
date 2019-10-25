@@ -9,9 +9,9 @@ model = pickle.load(open('cat_pickle.pkl', 'rb'))
 
 app = Flask(__name__)
 
-#Drop API route for access 
-@app.route('/', mathods=['POST'])
 
+# Drop API route for access
+@app.route('/', methods=['POST'])
 def prediction():
     """Take in user input from site and run prediction against trained model
     format of api call must be json containing in order:
@@ -71,5 +71,15 @@ def prediction():
     data = request.get_json(force=True)
 # Wrangle data to pass model input standards
     data_in = json.loads(data)
-    game = list(data_in.values())
-    
+    game = list(data.values())
+# Make prediction with input data
+    predicted = model.predict(game)[0]
+# Capture prediciton and format for output
+    out = predicted[0]
+    wins = {'Winning team': str(out)}
+# Output prediction
+    return jsonify(wins)
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
