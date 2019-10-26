@@ -2,6 +2,7 @@
 
 import json
 import pickle
+import pandas as pd
 
 from flask import Flask, jsonify, request
 
@@ -69,11 +70,14 @@ def prediction():
     """
 # Get input values from request
     data = request.get_json(force=True)
-# Wrangle data to pass model input standards
-    data_in = json.loads(data)
-    game = list(data.values())
+# # Wrangle data to pass model input standards
+#     data_in = json.loads(data)
+#     game = list(data_in.values())
+    # convert data into dataframe
+    data.update((x, [y]) for x, y in data.items())
+    data_df = pd.DataFrame.from_dict(data)
 # Make prediction with input data
-    predicted = model.predict(game)[0]
+    predicted = model.predict(data_df)[0]
 # Capture prediciton and format for output
     out = predicted[0]
     wins = {'Winning team': str(out)}
