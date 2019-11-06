@@ -5,10 +5,12 @@ import pickle
 
 import pandas as pd
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 model = pickle.load(open('cat_pickle.pkl', 'rb'))
 
 app = Flask(__name__)
+CORS(app)
 
 
 # Drop API route for access
