@@ -22,9 +22,9 @@ The Endpoint to access the prediction model API is available here:
 ## Interacting with the API
 
 To interact with the API please send a post request to the endpoint url listed above.
-The format of the post request should be a json string formatted and containing the values profiled below.
+The format of the post request should be a JSON object formatted and containing the values profiled below.
 
-```json
+```
 {
     'date': 20080612,
     'day_of_week': 'Thu',
@@ -41,7 +41,7 @@ The format of the post request should be a json string formatted and containing 
 
 The return for this request will be a json string as shown below
 
-```json
+```
 {
     'Winning team': 'CLE'
 }
