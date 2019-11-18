@@ -12,7 +12,7 @@ Our application's back-end is built using `Node.js` and so it'll be easiest to d
 
 
 ### Measuring Accuracy:
-A naive approach to measure predictive accuracy would be to rely on the ratio of correct predictions out of total predictions, per user. However, one can see how this might run into an inbalance problem. Let's say User A, and User B both have 73% accuracy. But user B has made 12 more predictions than User B. Can they really be said to have the same ability to predict game outcomes? Or, in a more advanced version of our application, where each game has a breakdown of odds, shouldn't the user who correctly predicts the underdog rank higher than the user that correctly predicts the favorite? Sports betting would side with the former over the latter. 
+A naive approach to measure predictive accuracy would be to rely on the ratio of correct predictions out of total predictions, per user. However, one can see how this might run into an inbalance problem. Let's say User A, and User B both have 73% accuracy. But user B has made 12 more predictions than User A. Can they really be said to have the same ability to predict game outcomes? Or, in a more advanced version of our application, where each game has a breakdown of odds, shouldn't the user who correctly predicts the underdog rank higher than the user that correctly predicts the favorite? Sports betting would side with the former over the latter. 
 
 To remedy this, we're going to use what Data Science to assess classification models with imbalanced classes:
 
